@@ -33,7 +33,7 @@ void server::onReadyRead()
     qDebug() << QTime::currentTime() << "server.cpp: START onReadyRead";
 
     // Возвращает указатель на объект, отправивший сигнал, если он вызван в слоте, активированном сигналом
-    QTcpSocket *client = qobject_cast<QTcpSocket*>(sender()); // client == client из incomingConnection == клиентский socket из chatterbox
+    QTcpSocket *client = qobject_cast<QTcpSocket*>(sender()); // client == client из incomingConnection == клиентский socket  со стороны клиента
     if( !client) {qWarning() <<"error cast";}
 
     while(client->canReadLine())
@@ -97,7 +97,7 @@ void server::onDisconnected()
     qDebug() << QTime::currentTime() << "server.cpp: START onDisconnected";
 
     // Возвращает указатель на объект, отправивший сигнал, если он вызван в слоте, активированном сигналом
-    QTcpSocket *client = qobject_cast<QTcpSocket*>(sender()); // client == client из incomingConnection == клиентский socket из chatterbox
+    QTcpSocket *client = qobject_cast<QTcpSocket*>(sender()); // client == client из incomingConnection == клиентский socket  со стороны клиента
     if( !client) {qWarning() <<"error cast";}
 
 

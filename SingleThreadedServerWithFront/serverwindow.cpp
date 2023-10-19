@@ -12,8 +12,9 @@ void ServerWindow::logMessage(const QString &msg)
 
     qDebug() << QTime::currentTime() << "serverwindow.cpp: START logMessage";
 
-    ui->logBox->appendPlainText(msg + "\n");
+    ui->logBox->appendPlainText(msg + "\n"); // logBox из "serverwindow.ui"
 }
+
 
 
 void ServerWindow::StartStopServer()
@@ -27,7 +28,7 @@ void ServerWindow::StartStopServer()
         logMessage(QStringLiteral("Server Stopped"));
         Server->stopServer();
 
-        ui->StartStopButton->setText(tr("Start Server"));
+        ui->StartStopButton->setText(tr("Start Server"));  // StartStopButton из "serverwindow.ui"
 
 
     } else {
@@ -38,7 +39,7 @@ void ServerWindow::StartStopServer()
         }
 
         logMessage(QStringLiteral("Server Started"));
-        ui->StartStopButton->setText(tr("Stop Server"));
+        ui->StartStopButton->setText(tr("Stop Server"));  // StartStopButton из "serverwindow.ui"
     }
 
 
@@ -54,7 +55,7 @@ ServerWindow::ServerWindow() :  ui(new Ui::ServerWindow), Server(new server(this
 
     ui->setupUi(this);
 
-    connect(ui->StartStopButton, &QPushButton::clicked, this, &ServerWindow::StartStopServer);
+    connect(ui->StartStopButton, &QPushButton::clicked, this, &ServerWindow::StartStopServer);  // StartStopButton из "serverwindow.ui"
     connect(Server, &server::logMessage, this, &ServerWindow::logMessage);
 }
 
